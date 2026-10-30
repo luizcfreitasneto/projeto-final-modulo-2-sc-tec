@@ -165,7 +165,9 @@ def main():
     # COMPLETE: subtrair duas datas da um "intervalo"; o numero de dias esta em .days
     fato["dias_ciclo"] = [(h - p).days if h is not None and not pd.isna(h) else None
                           for h, p in zip(fato["data_homologacao"], fato["data_publicacao"])]
+    fato["dias_ciclo"] = fato["dias_ciclo"].astype("Int64")
 
+    
     # =========================================================================================
     # ETAPA 8 - PERFIL DO GASTO  (regra 8)
     # =========================================================================================
