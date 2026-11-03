@@ -141,6 +141,14 @@ Os dados foram organizados em um modelo Star Schema (esquema estrela), composto 
 
 Essa estrutura facilita a criação de consultas analíticas e o relacionamento dos dados com o Power BI.
 
+
+**Diagrama do modelo dimensional (Star Schema):**
+
+![Modelo dimensional do PNCP 2025](docs/img/modelo_dimensional.png)
+
+O modelo possui quatro dimensões relacionadas à tabela fato `fato_item_contratado` por chaves estrangeiras, com relacionamentos de um para muitos (1:N).
+
+
 ### 5.5. Armazenamento
 
 Os dados tratados foram carregados no PostgreSQL, permitindo executar consultas SQL e conectar o banco ao Power BI para a construção dos dashboards.
@@ -314,3 +322,47 @@ Abra o arquivo:
 No Power BI Desktop, verifique as configurações da fonte PostgreSQL.
 
 A atualização dos dados depende de uma conexão válida com o banco de dados utilizado pelo projeto.
+
+
+
+## 9. Planejamento em Sprints
+
+O desenvolvimento do projeto foi organizado retrospectivamente em seis Sprints, abrangendo preparação, qualidade dos dados, modelagem dimensional, PostgreSQL, Power BI e documentação.
+
+![Planejamento em Sprints do Projeto PNCP 2025](docs/img/sprints.png)
+
+O detalhamento das atividades está disponível em [Planejamento das Sprints](docs/planejamento_sprints.md).
+
+
+
+## 10. Decisões técnicas
+
+Durante o desenvolvimento do projeto, foram adotadas as seguintes decisões:
+
+- **Python e Pandas:** utilizados para inspeção, auditoria, limpeza e transformação dos dados.
+- **PostgreSQL:** escolhido para armazenar os dados tratados e permitir consultas SQL.
+- **Modelo Star Schema:** adotado para organizar os dados em uma tabela fato e quatro dimensões, facilitando as análises.
+- **Chaves substitutas:** utilizadas nas dimensões para estabelecer relacionamentos com a tabela fato.
+- **Validação de integridade:** realizada para identificar valores ausentes, duplicidades e inconsistências nos relacionamentos.
+- **Tratamento de datas e valores monetários:** necessário devido à diversidade de formatos encontrados nos arquivos originais.
+- **Power BI:** utilizado para apresentar indicadores, gráficos e análises interativas.
+- **GitHub:** utilizado para versionamento, documentação e disponibilização dos arquivos do projeto.
+
+## 11. Limitações e melhorias futuras
+
+### Limitações
+
+- A análise utiliza os dados disponibilizados para o projeto, não representando necessariamente todas as contratações públicas de 2025.
+- Alguns registros apresentam informações ausentes, o que limita determinadas análises.
+- O cálculo de economia considera apenas os itens classificados como comparáveis.
+- Os resultados dependem da qualidade e da cobertura dos dados de origem.
+
+### Melhorias futuras
+
+- Automatizar a atualização dos dados por meio de um pipeline agendado.
+- Integrar novas bases e períodos do PNCP.
+- Implementar testes automatizados de qualidade dos dados.
+- Criar mecanismos de monitoramento e registro de falhas do ETL.
+- Ampliar os indicadores e análises do Power BI.
+- Disponibilizar uma solução de atualização periódica do dashboard.
+
